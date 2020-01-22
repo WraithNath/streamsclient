@@ -24,8 +24,10 @@ class StreamList extends React.Component {
                     {this.renderMaintain(stream)}
                     <i className="large middle aligned icon camera"/>
                     <div className="content">
-                        {stream.title}
-                        <div className="description">{stream.description}</div>
+                        <Link className={"header"} to={`/streams/show/${stream.id}`}>
+                            {stream.title}
+                            <div className="description">{stream.description}</div>
+                        </Link>
                     </div>
                 </div>
             );
@@ -44,7 +46,7 @@ class StreamList extends React.Component {
     renderCreate = () => {
         return this.props.isSignedIn && (
             <div style={{textAlign: 'right'}}>
-                <Link className={"ui button primary"} to={"/streams/new" }>
+                <Link className={"ui button primary"} to={"/streams/new"}>
                     Create Stream
                 </Link>
             </div>
